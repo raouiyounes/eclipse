@@ -24,5 +24,5 @@ vt_window_width=416
 vt_window_height=480
 exp_map_size=500
 posecells_size=250
-media_path=/home/younes/catkin_ws/install/share/ratslam_ros/media
+media_path=/home/younes/catkin_wsx/install/share/ratslam_ros/media
 image_file=irat_sm.tga

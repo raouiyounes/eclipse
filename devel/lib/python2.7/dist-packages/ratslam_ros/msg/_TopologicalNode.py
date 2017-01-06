@@ -15,7 +15,7 @@ class TopologicalNode(genpy.Message):
 geometry_msgs/Pose pose
 ================================================================================
 MSG: geometry_msgs/Pose
-# A representation of pose in free space, composed of postion and orientation. 
+# A representation of pose in free space, composed of position and orientation. 
 Point position
 Quaternion orientation
 
@@ -76,7 +76,7 @@ float64 w
     """
     try:
       _x = self
-      buff.write(_struct_I7d.pack(_x.id, _x.pose.position.x, _x.pose.position.y, _x.pose.position.z, _x.pose.orientation.x, _x.pose.orientation.y, _x.pose.orientation.z, _x.pose.orientation.w))
+      buff.write(_get_struct_I7d().pack(_x.id, _x.pose.position.x, _x.pose.position.y, _x.pose.position.z, _x.pose.orientation.x, _x.pose.orientation.y, _x.pose.orientation.z, _x.pose.orientation.w))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -92,7 +92,7 @@ float64 w
       _x = self
       start = end
       end += 60
-      (_x.id, _x.pose.position.x, _x.pose.position.y, _x.pose.position.z, _x.pose.orientation.x, _x.pose.orientation.y, _x.pose.orientation.z, _x.pose.orientation.w,) = _struct_I7d.unpack(str[start:end])
+      (_x.id, _x.pose.position.x, _x.pose.position.y, _x.pose.position.z, _x.pose.orientation.x, _x.pose.orientation.y, _x.pose.orientation.z, _x.pose.orientation.w,) = _get_struct_I7d().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -106,7 +106,7 @@ float64 w
     """
     try:
       _x = self
-      buff.write(_struct_I7d.pack(_x.id, _x.pose.position.x, _x.pose.position.y, _x.pose.position.z, _x.pose.orientation.x, _x.pose.orientation.y, _x.pose.orientation.z, _x.pose.orientation.w))
+      buff.write(_get_struct_I7d().pack(_x.id, _x.pose.position.x, _x.pose.position.y, _x.pose.position.z, _x.pose.orientation.x, _x.pose.orientation.y, _x.pose.orientation.z, _x.pose.orientation.w))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -123,10 +123,18 @@ float64 w
       _x = self
       start = end
       end += 60
-      (_x.id, _x.pose.position.x, _x.pose.position.y, _x.pose.position.z, _x.pose.orientation.x, _x.pose.orientation.y, _x.pose.orientation.z, _x.pose.orientation.w,) = _struct_I7d.unpack(str[start:end])
+      (_x.id, _x.pose.position.x, _x.pose.position.y, _x.pose.position.z, _x.pose.orientation.x, _x.pose.orientation.y, _x.pose.orientation.z, _x.pose.orientation.w,) = _get_struct_I7d().unpack(str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_I7d = struct.Struct("<I7d")
+def _get_struct_I():
+    global _struct_I
+    return _struct_I
+_struct_I7d = None
+def _get_struct_I7d():
+    global _struct_I7d
+    if _struct_I7d is None:
+        _struct_I7d = struct.Struct("<I7d")
+    return _struct_I7d

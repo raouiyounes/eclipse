@@ -31,6 +31,7 @@ struct TopologicalNode_
   TopologicalNode_(const ContainerAllocator& _alloc)
     : id(0)
     , pose(_alloc)  {
+  (void)_alloc;
     }
 
 
@@ -75,7 +76,7 @@ namespace message_traits
 
 
 // BOOLTRAITS {'IsFixedSize': True, 'IsMessage': True, 'HasHeader': False}
-// {'std_msgs': ['/opt/ros/jade/share/std_msgs/cmake/../msg'], 'geometry_msgs': ['/opt/ros/indigo/share/geometry_msgs/cmake/../msg'], 'ratslam_ros': ['/home/younes/catkin_ws/src/ratslam_ros/msg']}
+// {'std_msgs': ['/opt/ros/kinetic/share/std_msgs/cmake/../msg'], 'geometry_msgs': ['/opt/ros/kinetic/share/geometry_msgs/cmake/../msg'], 'ratslam_ros': ['/home/younes/catkin_ws/src/ratslam_ros/msg']}
 
 // !!!!!!!!!!! ['__class__', '__delattr__', '__dict__', '__doc__', '__eq__', '__format__', '__getattribute__', '__hash__', '__init__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', '_parsed_fields', 'constants', 'fields', 'full_name', 'has_header', 'header_present', 'names', 'package', 'parsed_fields', 'short_name', 'text', 'types']
 
@@ -146,7 +147,7 @@ struct Definition< ::ratslam_ros::TopologicalNode_<ContainerAllocator> >
 geometry_msgs/Pose pose\n\
 ================================================================================\n\
 MSG: geometry_msgs/Pose\n\
-# A representation of pose in free space, composed of postion and orientation. \n\
+# A representation of pose in free space, composed of position and orientation. \n\
 Point position\n\
 Quaternion orientation\n\
 \n\

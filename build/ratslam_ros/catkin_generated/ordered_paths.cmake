@@ -1,1 +1,1 @@
-set(ORDERED_PATHS "/opt/ros/indigo/lib;/opt/ros/jade/lib")
+set(ORDERED_PATHS "/opt/ros/kinetic/lib")

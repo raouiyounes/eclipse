@@ -95,7 +95,7 @@ float64 w
     """
     try:
       _x = self
-      buff.write(_struct_3I2i7d.pack(_x.id, _x.source_id, _x.destination_id, _x.duration.secs, _x.duration.nsecs, _x.transform.translation.x, _x.transform.translation.y, _x.transform.translation.z, _x.transform.rotation.x, _x.transform.rotation.y, _x.transform.rotation.z, _x.transform.rotation.w))
+      buff.write(_get_struct_3I2i7d().pack(_x.id, _x.source_id, _x.destination_id, _x.duration.secs, _x.duration.nsecs, _x.transform.translation.x, _x.transform.translation.y, _x.transform.translation.z, _x.transform.rotation.x, _x.transform.rotation.y, _x.transform.rotation.z, _x.transform.rotation.w))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -113,7 +113,7 @@ float64 w
       _x = self
       start = end
       end += 76
-      (_x.id, _x.source_id, _x.destination_id, _x.duration.secs, _x.duration.nsecs, _x.transform.translation.x, _x.transform.translation.y, _x.transform.translation.z, _x.transform.rotation.x, _x.transform.rotation.y, _x.transform.rotation.z, _x.transform.rotation.w,) = _struct_3I2i7d.unpack(str[start:end])
+      (_x.id, _x.source_id, _x.destination_id, _x.duration.secs, _x.duration.nsecs, _x.transform.translation.x, _x.transform.translation.y, _x.transform.translation.z, _x.transform.rotation.x, _x.transform.rotation.y, _x.transform.rotation.z, _x.transform.rotation.w,) = _get_struct_3I2i7d().unpack(str[start:end])
       self.duration.canon()
       return self
     except struct.error as e:
@@ -128,7 +128,7 @@ float64 w
     """
     try:
       _x = self
-      buff.write(_struct_3I2i7d.pack(_x.id, _x.source_id, _x.destination_id, _x.duration.secs, _x.duration.nsecs, _x.transform.translation.x, _x.transform.translation.y, _x.transform.translation.z, _x.transform.rotation.x, _x.transform.rotation.y, _x.transform.rotation.z, _x.transform.rotation.w))
+      buff.write(_get_struct_3I2i7d().pack(_x.id, _x.source_id, _x.destination_id, _x.duration.secs, _x.duration.nsecs, _x.transform.translation.x, _x.transform.translation.y, _x.transform.translation.z, _x.transform.rotation.x, _x.transform.rotation.y, _x.transform.rotation.z, _x.transform.rotation.w))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -147,11 +147,19 @@ float64 w
       _x = self
       start = end
       end += 76
-      (_x.id, _x.source_id, _x.destination_id, _x.duration.secs, _x.duration.nsecs, _x.transform.translation.x, _x.transform.translation.y, _x.transform.translation.z, _x.transform.rotation.x, _x.transform.rotation.y, _x.transform.rotation.z, _x.transform.rotation.w,) = _struct_3I2i7d.unpack(str[start:end])
+      (_x.id, _x.source_id, _x.destination_id, _x.duration.secs, _x.duration.nsecs, _x.transform.translation.x, _x.transform.translation.y, _x.transform.translation.z, _x.transform.rotation.x, _x.transform.rotation.y, _x.transform.rotation.z, _x.transform.rotation.w,) = _get_struct_3I2i7d().unpack(str[start:end])
       self.duration.canon()
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
 
 _struct_I = genpy.struct_I
-_struct_3I2i7d = struct.Struct("<3I2i7d")
+def _get_struct_I():
+    global _struct_I
+    return _struct_I
+_struct_3I2i7d = None
+def _get_struct_3I2i7d():
+    global _struct_3I2i7d
+    if _struct_3I2i7d is None:
+        _struct_3I2i7d = struct.Struct("<3I2i7d")
+    return _struct_3I2i7d
